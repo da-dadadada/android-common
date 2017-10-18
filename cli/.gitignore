@@ -50,3 +50,6 @@ out
 #Plugins and errata
 mirror/
 
+#repo
+/repo
+
