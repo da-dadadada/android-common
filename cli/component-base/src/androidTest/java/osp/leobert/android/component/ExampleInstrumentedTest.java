@@ -1,4 +1,4 @@
-package osp.leobert.android.common;
+package osp.leobert.android.component;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("osp.leobert.android.common.test", appContext.getPackageName());
+        assertEquals("osp.leobert.android.component.test", appContext.getPackageName());
     }
 }

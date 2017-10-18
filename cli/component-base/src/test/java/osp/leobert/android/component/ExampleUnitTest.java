@@ -1,4 +1,4 @@
-package osp.leobert.android.common;
+package osp.leobert.android.component;
 
 import org.junit.Test;
 
