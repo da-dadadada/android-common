@@ -1,6 +1,6 @@
 package osp.leobert.android.common.domain.event;
 
-import osp.leobert.android.common.domain.bean.UserInfo;
+import osp.leobert.android.common.domain.bean.user.UserInfo;
 
 /**
  * <p><b>Package:</b> osp.leobert.android.common.domain.event </p>

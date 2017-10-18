@@ -1,4 +1,4 @@
-package osp.leobert.android.common.domain.bean;
+package osp.leobert.android.common.domain.bean.user;
 
 /**
  * <p><b>Package:</b> osp.leobert.android.common.domain.bean </p>

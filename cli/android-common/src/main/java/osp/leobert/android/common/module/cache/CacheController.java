@@ -33,7 +33,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import osp.leobert.android.common.domain.bean.CurrentUser;
+import osp.leobert.android.common.domain.bean.user.CurrentUser;
 
 /**
  * <p><b>Package:</b> com.lht.lhttalk.clazz.cache </p>

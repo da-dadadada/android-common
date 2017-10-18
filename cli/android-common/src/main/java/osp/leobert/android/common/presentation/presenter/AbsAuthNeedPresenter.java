@@ -1,6 +1,6 @@
 package osp.leobert.android.common.presentation.presenter;
 
-import osp.leobert.android.common.domain.bean.CurrentUser;
+import osp.leobert.android.common.domain.bean.user.CurrentUser;
 import osp.leobert.android.common.domain.event.LoginCanceledEvent;
 import osp.leobert.android.common.domain.event.LoginSuccessEvent;
 import osp.leobert.android.common.domain.executor.Executor;

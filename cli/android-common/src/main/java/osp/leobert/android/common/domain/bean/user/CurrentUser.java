@@ -1,4 +1,4 @@
-package osp.leobert.android.common.domain.bean;
+package osp.leobert.android.common.domain.bean.user;
 
 import android.support.annotation.NonNull;
 
