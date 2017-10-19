@@ -16,7 +16,7 @@ import osp.leobert.android.common.domain.interactors.base.AbsDbInteractor;
  * Created by leobert on 2017/8/4.
  */
 
-public abstract class BaseRepository<O extends OrmContext<O,Model>, Model> implements Repository<Model> {
+public abstract class BaseRepository<O extends OrmContext, Model> implements Repository<Model> {
 
     protected abstract String getDatabaseName();
 
@@ -63,9 +63,9 @@ public abstract class BaseRepository<O extends OrmContext<O,Model>, Model> imple
         return voidInstance;
     }
 
-    public final Model queryById( final long key) {
+    public final Model queryById(final long key) {
         if (this instanceof NumKeyDbRepository) {
-            return getConnectedInstance().queryById(key, modelClass);
+            return (Model) getConnectedInstance().queryById(key, modelClass);
         }
         throw new IllegalStateException("this is not a Numeric Key typed repository! maybe you forget sth");
     }

@@ -34,7 +34,7 @@ public interface OrmContext<O extends OrmContext> {
 
     <Model> long save(Model model);
 
-    <Model> int save(Collection collection);
+    int save(Collection collection);
 
     <Model> long insert(Model model);
 
