@@ -13,7 +13,7 @@ import osp.leobert.android.common.domain.repository.BaseRepository;
  * Created by leobert on 2017/10/18.
  */
 
-public class UserRepo extends BaseRepository<DemoOrmContext,UserInfo> {
+public class UserRepo extends BaseRepository<DemoOrmContext<UserInfo>,UserInfo> {
     public UserRepo() {
         super(UserInfo.class);
     }
@@ -26,15 +26,7 @@ public class UserRepo extends BaseRepository<DemoOrmContext,UserInfo> {
     @NonNull
     @Override
     protected DemoOrmContext initOrmContextAndConnect() {
-        //...
-
-//        UserInfo userInfo = t(UserInfo.class);
-
+        //... init your OrmContext and Connect to the database
         return null;
     }
-
-//    <T> T t(Class<T> c) {
-//        return null;
-//    }
-
 }

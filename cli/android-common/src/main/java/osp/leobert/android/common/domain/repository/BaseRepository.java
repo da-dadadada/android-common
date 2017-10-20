@@ -11,12 +11,31 @@ import osp.leobert.android.common.domain.interactors.base.AbsDbInteractor;
 /**
  * <p><b>Package:</b> com.lht.creationspace.base.domain.repository </p>
  * <p><b>Project:</b> czspace </p>
- * <p><b>Classname:</b> BaseRespository </p>
- * <p><b>Description:</b> TODO </p>
+ * <p><b>Classname:</b> BaseRepository </p>
+ * <p><b>Description:</b> BaseRepository </p>
+ * <p>
+ * like this:
+ * <p>
+ * public class UserRepo extends BaseRepository&lt;DemoOrmContext&lt;UserInfo&gt;,UserInfo&gt; {
+ * public UserRepo() {
+ * super(UserInfo.class);
+ * }
+ * <p>
+ * //@Override
+ * protected String getDatabaseName() {
+ * return "user_info";
+ * }
+ * //@NonNull
+ * //@Override
+ * protected DemoOrmContext initOrmContextAndConnect() {
+ * //... init your OrmContext and Connect to the database
+ * return null;
+ * }
+ * }
  * Created by leobert on 2017/8/4.
  */
 
-public abstract class BaseRepository<O extends OrmContext, Model> implements Repository<Model> {
+public abstract class BaseRepository<O extends OrmContext<O, Model>, Model> implements Repository<Model> {
 
     protected abstract String getDatabaseName();
 
@@ -25,8 +44,6 @@ public abstract class BaseRepository<O extends OrmContext, Model> implements Rep
     public BaseRepository(Class<Model> model) {
         this.modelClass = model;
     }
-
-//    private LiteOrmContext liteOrmContext;
 
     private O ormContext;
 
@@ -65,7 +82,7 @@ public abstract class BaseRepository<O extends OrmContext, Model> implements Rep
 
     public final Model queryById(final long key) {
         if (this instanceof NumKeyDbRepository) {
-            return (Model) getConnectedInstance().queryById(key, modelClass);
+            return getConnectedInstance().queryById(key, modelClass);
         }
         throw new IllegalStateException("this is not a Numeric Key typed repository! maybe you forget sth");
     }
@@ -125,12 +142,10 @@ public abstract class BaseRepository<O extends OrmContext, Model> implements Rep
     }
 
     public interface StringKeyDbRepository<Model> extends Repository<Model> {
-        //       void deleteById(String key);
         Model queryById(String key);
     }
 
     public interface NumKeyDbRepository<Model> extends Repository<Model> {
-        //        void deleteById(long id);
         Model queryById(long key);
     }
 }

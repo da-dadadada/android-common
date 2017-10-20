@@ -11,11 +11,17 @@ import java.util.Collection;
  * <p><b>Package:</b> osp.leobert.android.common.domain.repository </p>
  * <p><b>Project:</b> cli </p>
  * <p><b>Classname:</b> OrmContext </p>
- * <p><b>Description:</b> TODO </p>
+ * <p><b>Description:</b>
+ * define a class to implement this interface as follow:
+ * <p>
+ * public class DemoOrmContext&lt;Model&gt; implements OrmContext&lt;DemoOrmContext&lt;Model&gt;,Model&gt;
+ * <p>
+ * maybe LiteOrmContext with LiteOrm or OrmLiteContext with OrmLite
+ * <p>
  * Created by leobert on 2017/10/18.
  */
 
-public interface OrmContext<O extends OrmContext> {
+public interface OrmContext<O extends OrmContext<O, Model>, Model> {
 
     int SINGLE = 1;
 
@@ -32,37 +38,35 @@ public interface OrmContext<O extends OrmContext> {
     boolean isConnected();
 
 
-    <Model> long save(Model model);
+    long save(Model model);
 
-    int save(Collection collection);
+    int save(Collection<Model> collection);
 
-    <Model> long insert(Model model);
+    long insert(Model model);
 
     int insert(Collection collection);
 
-    <Model> int update(Model model);
+    int update(Model model);
 
-    int update(Collection collection);
+    int update(Collection<Model> collection);
 
-    <Model> int delete(Model model);
+    int delete(Model model);
 
-    <Model> int delete(Class<Model> aClass);
+    int delete(Class<Model> aClass);
 
-    <Model> int deleteAll(Class<Model> aClass);
+    int deleteAll(Class<Model> aClass);
 
-    <Model> int delete(Collection<Model> collection);
+    int delete(Collection<Model> collection);
 
-    <Model> ArrayList<Model> query(Class<Model> aClass);
+    ArrayList<Model> query(Class<Model> aClass);
 
-    <Model> Model queryById(long l, Class<Model> aClass);
+    Model queryById(long l, Class<Model> aClass);
 
-    <Model> Model queryById(String s, Class<Model> aClass);
+    Model queryById(String s, Class<Model> aClass);
 
-    <Model> long queryCount(Class<Model> aClass);
+    long queryCount(Class<Model> aClass);
 
-    <Model> boolean dropTable(Class<Model> aClass);
-
-    boolean dropTable(String s);
+    boolean dropTable(Class<Model> aClass);
 
     void close();
 

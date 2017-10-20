@@ -13,10 +13,11 @@ import osp.leobert.android.common.domain.repository.OrmContext;
  * Created by leobert on 2017/10/18.
  */
 
-public class DemoOrmContext implements OrmContext<DemoOrmContext> {
+public class DemoOrmContext<Model> implements OrmContext<DemoOrmContext<Model>,Model> {
+
 
     @Override
-    public DemoOrmContext getOrmContext() {
+    public DemoOrmContext<Model> getOrmContext() {
         return null;
     }
 
@@ -26,17 +27,17 @@ public class DemoOrmContext implements OrmContext<DemoOrmContext> {
     }
 
     @Override
-    public <Model> long save(Model model) {
+    public long save(Model model) {
         return 0;
     }
 
     @Override
-    public int save(Collection collection) {
+    public int save(Collection<Model> collection) {
         return 0;
     }
 
     @Override
-    public <Model> long insert(Model model) {
+    public long insert(Model model) {
         return 0;
     }
 
@@ -46,62 +47,57 @@ public class DemoOrmContext implements OrmContext<DemoOrmContext> {
     }
 
     @Override
-    public <Model> int update(Model model) {
+    public int update(Model model) {
         return 0;
     }
 
     @Override
-    public int update(Collection collection) {
+    public int update(Collection<Model> collection) {
         return 0;
     }
 
     @Override
-    public <Model> int delete(Model model) {
+    public int delete(Model model) {
         return 0;
     }
 
     @Override
-    public <Model> int delete(Class<Model> aClass) {
+    public int delete(Class<Model> aClass) {
         return 0;
     }
 
     @Override
-    public <Model> int deleteAll(Class<Model> aClass) {
+    public int deleteAll(Class<Model> aClass) {
         return 0;
     }
 
     @Override
-    public <Model> int delete(Collection<Model> collection) {
+    public int delete(Collection<Model> collection) {
         return 0;
     }
 
     @Override
-    public <Model> ArrayList<Model> query(Class<Model> aClass) {
+    public ArrayList<Model> query(Class<Model> aClass) {
         return null;
     }
 
     @Override
-    public <Model> Model queryById(long l, Class<Model> aClass) {
+    public Model queryById(long l, Class<Model> aClass) {
         return null;
     }
 
     @Override
-    public <Model> Model queryById(String s, Class<Model> aClass) {
+    public Model queryById(String s, Class<Model> aClass) {
         return null;
     }
 
     @Override
-    public <Model> long queryCount(Class<Model> aClass) {
+    public long queryCount(Class<Model> aClass) {
         return 0;
     }
 
     @Override
-    public <Model> boolean dropTable(Class<Model> aClass) {
-        return false;
-    }
-
-    @Override
-    public boolean dropTable(String s) {
+    public boolean dropTable(Class<Model> aClass) {
         return false;
     }
 
