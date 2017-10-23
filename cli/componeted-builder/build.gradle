@@ -63,7 +63,7 @@ apply plugin: 'maven-publish'
 group = "individual.leobert.libs"
 
 // 根节点添加
-version = "1.0.0"
+version = "1.0.1"
 
 // 根节点添加
 def siteUrl = 'https://github.com/leobert-lan/android-common'    // project homepage
@@ -99,6 +99,34 @@ javadoc {
         version true
         links "http://docs.oracle.com/javase/7/docs/api"
     }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ["src/main/java", "src/main/groovy"]
+        }
+        resources {
+            srcDirs = ["src/main/resources/"]
+        }
+    }
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+//task javadoc(type: Javadoc) {
+//    source = sourceSets.main.java.srcDirs
+//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+//}
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+artifacts {
+    archives javadocJar
+    archives sourcesJar
 }
 
 // 根节点添加

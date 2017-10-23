@@ -3,19 +3,22 @@
 buildscript {
     repositories {
         jcenter()
-//        mavenCentral()
-        maven {
-            url uri('./repo') // 本地
-        }
-//        maven { url "https://jitpack.io" }
+        mavenCentral()
+//        maven {
+//            url uri('./repo') // 本地
+//        }
+////        maven { url "https://jitpack.io" }
         maven {
             url "http://dl.bintray.com/leobert-lan-oss/maven" //远端临时仓库
+        }
+        jcenter {
+            url "http://jcenter.bintray.com/"
         }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
-//individual.leobert.libs
-         classpath 'individual.leobert.libs:componeted-builder:1.0.0'
+
+        classpath 'individual.leobert.libs:componeted-builder:1.0.1'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
