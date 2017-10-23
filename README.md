@@ -1,37 +1,28 @@
-## Welcome to GitHub Pages
+## Welcome to Android-Common
 
-You can use the [editor on GitHub](https://github.com/leobert-lan/android-common/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+This is a basic library to help build MVP-Architected Android application. Not only a basic architecture 
+was provided in this repo, much more like: Compontented-Module-Build-Plugin, Router, releated annotation processor will be provided.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+By the way, **the  Compontented-Module-Build-Plugin comes from [luojilab/DDComponentForAndroid](https://github.com/luojilab/DDComponentForAndroid)**, I am one contributors of this repo putting efforts to the router part. **Because some classes has changed it's name and path, so we need to rebuild the plugin**.
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+##Projects in this repo
 
-```markdown
-Syntax highlighted code block
+* **componented-builder** a gradle plugin used to compile componented-module
+* **basic-clean-architecture**
+define basic class and interface referring the roles in clean architecture
+* **component-anno-processor** process annotation for route, autowired and so on
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
+All at the [page](https://github.com/leobert-lan/android-common/projects)
 
-1. Numbered
-2. List
+##Contact
+Recommend to add issues no matter confusion, suggest, feature-needs and bugs.
 
-**Bold** and _Italic_ and `Code` text
+you can also [email](leobert.l@hotmail.com) to me
 
-[Link](url) and ![Image](src)
-```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
+##License
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/leobert-lan/android-common/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+[MIT](https://opensource.org/licenses/MIT)
