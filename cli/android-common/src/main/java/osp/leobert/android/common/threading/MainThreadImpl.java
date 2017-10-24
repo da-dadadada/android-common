@@ -27,6 +27,11 @@ public class MainThreadImpl implements MainThread{
         mHandler.post(runnable);
     }
 
+    @Override
+    public void postDelayed(Runnable runnable, long delayMillis) {
+        mHandler.postDelayed(runnable, delayMillis);
+    }
+
     public static MainThread getInstance() {
         if (sMainThread == null) {
             sMainThread = new MainThreadImpl();

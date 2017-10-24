@@ -11,6 +11,18 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        //just put here . todo moduleName = options.get('eventBusIndex');
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [
+                        path_util_paramparser: 'osp.leobert.android.component.router.utils.ParamsUtils',
+                        path_json_service    : 'osp.leobert.android.common.json.JsonService',
+                        path_isyringe        : 'osp.leobert.android.common.di.ISyringe'
+                ]
+
+            }
+        }
     }
     buildTypes {
         release {
@@ -25,7 +37,12 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile project(':android-common')
+
+//    annotationProcessor project(':router-anno-compiler')
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+//    compile 'individual.leobert.libs:router-base:0.0.2'
     testCompile 'junit:junit:4.12'
+    annotationProcessor 'individual.leobert.libs:router-anno-compiler:0.0.1'
 }

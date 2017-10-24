@@ -28,4 +28,8 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:26.+'
     testCompile 'junit:junit:4.12'
+
+    compile 'individual.leobert.libs:component-base:0.0.2'
+
+    compile 'com.alibaba:fastjson:1.1.63.android'
 }

@@ -1,82 +1,21 @@
-apply plugin: 'com.android.library'
-
-sourceCompatibility = "1.7"
-targetCompatibility = "1.7"
-
-android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
-
-    defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-}
+apply plugin: 'java'
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:26.+'
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    testCompile 'junit:junit:4.12'
-//    compile project(':router-annotation')
-    compile 'individual.leobert.libs:router-base:0.0.2'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
 }
 
-
-def sdk_appendix = "base"
-def sdk_baseName = "component"
-def sdk_version = "0.0.2"
-
-task buildJar(dependsOn: ['compileReleaseJavaWithJavac'], type: Jar) {
-
-    appendix = sdk_appendix
-    baseName = sdk_baseName
-    version = sdk_version
-    //classifier = "release"
-    //后缀名
-    extension = "jar"
-    //最终的Jar 包名 ， 如果没设置 ， 默认为[baseName] - [appendix] - [version] - [classifier].[extension]
-
-    // 需打包的资源所在的路径集
-    def srcClassDir = [project.buildDir.absolutePath + "/intermediates/classes/release"];
-    //初始化资源路径集
-    from srcClassDir
-
-    //排除这两个文件
-    include("osp/leobert/**/*.class")
-    exclude("osp/leobert/android/component/BuildConfig.class",
-            "osp/leobert/android/component/R.class",
-            "osp/leobert/android/component/R\$*.class")
+compileJava {
+    sourceCompatibility = '1.7'
+    targetCompatibility = '1.7'
 }
 
-task buildJarAndCopy(dependsOn: "buildJar", type: Copy) {
-    from(project.buildDir.absolutePath + "/libs")
-    include(sdk_baseName + "-" + sdk_appendix + "-" + sdk_version + ".jar")
-    into("release")
-}
-
-/////////////////////////////////
-/// upload
-/////////////////////////////////
-
+////////////////////////////
+// upload
+////////////////////////////
 
 apply plugin: 'com.jfrog.bintray'
-apply plugin: 'com.github.dcendents.android-maven'
-//apply plugin: 'maven-publish'
-//apply plugin: 'maven'
+apply plugin: 'maven-publish'
+apply plugin: 'maven'
 
 
 //./gradlew javadocJar
@@ -89,8 +28,6 @@ group = "individual.leobert.libs"
 
 // 根节点添加
 version = "0.0.2"
-import groovy.transform.Field;
-@Field project_name = "component-base"
 
 // 根节点添加
 def siteUrl = 'https://github.com/leobert-lan/android-common'    // project homepage
@@ -118,16 +55,15 @@ buildscript {
 }
 
 
-//
-//javadoc {
-//    options {
-//        encoding "UTF-8"
-//        charSet 'UTF-8'
-//        author true
-//        version true
-//        links "http://docs.oracle.com/javase/7/docs/api"
-//    }
-//}
+javadoc {
+    options {
+        encoding "UTF-8"
+        charSet 'UTF-8'
+        author true
+        version true
+        links "http://docs.oracle.com/javase/7/docs/api"
+    }
+}
 
 sourceSets {
     main {
@@ -144,10 +80,10 @@ task sourcesJar(type: Jar) {
     from sourceSets.main.java.srcDirs
     classifier = 'sources'
 }
-task javadoc(type: Javadoc) {
-    source = sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
+//task javadoc(type: Javadoc) {
+//    source = sourceSets.main.java.srcDirs
+//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+//}
 task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
     from javadoc.destinationDir
@@ -163,8 +99,8 @@ install {
         // This generates POM.xml with proper parameters
         pom {
             project {
-                packaging 'jar'
-                name project_name
+//                packaging 'aar'
+                name 'router-base'
                 url siteUrl
                 licenses {
                     license {
@@ -201,7 +137,7 @@ bintray {
     configurations = ['archives']
     pkg {
         repo = "maven"
-        name = project_name    // #CONFIG# project name in jcenter
+        name = "router-base"     // #CONFIG# project name in jcenter
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["MIT"]

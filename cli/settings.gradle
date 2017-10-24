@@ -1,1 +1,1 @@
-include ':app', ':android-common', ':component-base', ':componeted-builder'
+include ':app', ':android-common', ':component-base', ':componeted-builder', ':router-base', ':router-anno-compiler'

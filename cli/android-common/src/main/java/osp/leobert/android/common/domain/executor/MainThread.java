@@ -13,4 +13,6 @@ public interface MainThread {
      * @param runnable The runnable to run.
      */
     void post(final Runnable runnable);
+
+    void postDelayed(final Runnable runnable, long delayMillis);
 }

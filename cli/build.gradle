@@ -29,6 +29,9 @@ allprojects {
     repositories {
         jcenter()
         mavenCentral()
+        maven {
+            url "http://dl.bintray.com/leobert-lan-oss/maven" //远端临时仓库
+        }
     }
 }
 
