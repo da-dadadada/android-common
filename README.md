@@ -3,7 +3,7 @@
 This is a basic library to help build MVP-Architected Android application. Not only a basic architecture 
 was provided in this repo, much more like: Compontented-Module-Build-Plugin, Router, releated annotation processor will be provided.
 
-By the way, **the  Compontented-Module-Build-Plugin comes from [luojilab/DDComponentForAndroid](https://github.com/luojilab/DDComponentForAndroid)**, I am one contributors of this repo putting efforts to the router part. **Because some classes has changed it's name and path, so we need to rebuild the plugin**.
+By the way, **the  Compontented-Module-Build-Plugin comes from [luojilab/DDComponentForAndroid](https://github.com/luojilab/DDComponentForAndroid)**, I am one contributor of this repo putting efforts to the router part. **Because some classes has changed it's name and path, so we need to rebuild the plugin**.
 
 
 ##Projects in this repo
