@@ -84,7 +84,7 @@ def gitUrl = 'https://github.com/leobert-lan/android-common.git' // project git
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
         minSdkVersion 21

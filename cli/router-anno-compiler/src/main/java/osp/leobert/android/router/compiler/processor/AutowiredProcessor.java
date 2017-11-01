@@ -100,11 +100,11 @@ public class AutowiredProcessor extends AbstractProcessor {
 
     private static final String SUFFIX_AUTOWIRED = "$$Router$$Autowired";
 
-    private String PATH_TYPE_ISYRINGE = "osp.leobert.android.common.di.ISyringe";
+    private String PATH_TYPE_ISYRINGE;// = "osp.leobert.android.common.di.ISyringe";
 
-    private String PATH_TYPE_JSON_SERVICE = "osp.leobert.android.common.json.JsonService";
+    private String PATH_TYPE_JSON_SERVICE;// = "osp.leobert.android.common.json.JsonService";
 
-    /*
+    /*`
     *  path_util_paramparser: 'osp.leobert.android.component.router.utils.ParamsUtils',
                         path_json_service    : 'osp.leobert.android.common.json.JsonService',
                         path_isyringe        : 'osp.leobert.android.common.di.ISyringe'

@@ -27,7 +27,7 @@ apply plugin: 'osp.leobert.android.componentedbuilder'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "osp.leobert.clidemo"
         minSdkVersion 21
@@ -36,7 +36,8 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-        //just put here . todo moduleName = options.get('eventBusIndex');
+        flavorDimensions "channel"
+
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [
@@ -57,6 +58,21 @@ android {
 }
 
 dependencies {
+
+    android {
+        productFlavors {
+            qh360 {
+                manifestPlaceholders = [UMENG_CHANNEL_VALUE: "360"]
+                dimension "channel"
+            }
+            TENCENT {
+                manifestPlaceholders = [UMENG_CHANNEL_VALUE: "TENCENT"]
+                dimension "channel"
+            }
+        }
+    }
+
+
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'

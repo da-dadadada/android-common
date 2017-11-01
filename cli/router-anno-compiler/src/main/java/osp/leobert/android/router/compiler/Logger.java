@@ -73,8 +73,8 @@ public class Logger {
         return sb.toString();
     }
 
-    private  static  boolean isNotEmpty(final CharSequence cs) {
-        boolean isEmpty =  cs == null || cs.length() == 0;
+    private static boolean isNotEmpty(final CharSequence cs) {
+        boolean isEmpty = cs == null || cs.length() == 0;
         return !isEmpty;
     }
 }
