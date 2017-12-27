@@ -22,4 +22,18 @@
  * SOFTWARE.
  */
 
-include ':app', ':android-common', ':component-base', ':componeted-builder', ':router-base', ':router-anno-compiler', ':router-api'
+package osp.leobert.android.router.parser;
+
+import osp.leobert.android.router.facade.model.NodeParamsConfig;
+
+/**
+ * <p><b>Package:</b> osp.leobert.android.router.parser </p>
+ * <p><b>Project:</b> cli </p>
+ * <p><b>Classname:</b> QsParamParser </p>
+ * <p><b>Description:</b> TODO </p>
+ * Created by leobert on 2017/11/1.
+ */
+
+public interface QsParamParser<Target,U> {
+    Target parse(Target origin, U uri, NodeParamsConfig config);
+}

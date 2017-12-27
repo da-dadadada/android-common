@@ -22,4 +22,15 @@
  * SOFTWARE.
  */
 
-include ':app', ':android-common', ':component-base', ':componeted-builder', ':router-base', ':router-anno-compiler', ':router-api'
+package osp.leobert.android.router;
+
+/**
+ * <p><b>Package:</b> osp.leobert.android.router </p>
+ * <p><b>Project:</b> cli </p>
+ * <p><b>Classname:</b> UiRouter </p>
+ * <p><b>Description:</b> TODO </p>
+ * Created by leobert on 2017/11/1.
+ */
+
+public class UiRouter {
+}
